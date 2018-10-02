@@ -1,0 +1,16 @@
+version: "3"
+services:
+  web:
+    image: node:9.0-alpine
+    user: node
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./:/home/node/app
+    expose:
+      - 8081
+    ports:
+      - 8081:8081
+    restart: always
+    command: "node index.js"
